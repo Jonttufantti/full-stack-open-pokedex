@@ -1,10 +1,8 @@
 name: Hello World!
-
 on:
   push:
     branches:
       - main
-
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -12,3 +10,7 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+      - name: Print date
+        run: date
+      - name: List directory contents
+        run: ls -l
