@@ -10,4 +10,10 @@ describe("Pokedex", () => {
       )
     ).toBeVisible();
   });
+
+  test("can navigate to a pokemon page", async ({ page }) => {
+    await page.goto("");
+    await page.click("text=ivysaur");
+    await expect(page.getByText("chlorophyll")).toBeVisible();
+  });
 });
