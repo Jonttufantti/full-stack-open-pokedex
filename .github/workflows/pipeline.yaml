@@ -35,14 +35,14 @@ jobs:
         run: |
           curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
             -H "Content-Type: application/json" \
-            -d '{"content": "✅ A new version deployed successfully!"}'
+            -d '{"content": "A new version deployed successfully!"}'
 
       - name: Build Failure Notification
         if: ${{ failure() }}
         run: |
           curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
             -H "Content-Type: application/json" \
-            -d "{\"content\": \"❌ Build failed! Commit ${{ github.sha }} by ${{ github.actor }} broke the build\"}"
+            -d "{\"content\": \"Build failed! Commit ${{ github.sha }}\"}"
 
   tag_release:
     needs: [simple_deployment_pipeline]
